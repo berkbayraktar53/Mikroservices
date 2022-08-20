@@ -1,0 +1,23 @@
+											-----------------------
+											| Mikroservis Notlarý |
+											-----------------------
+ - Redis: Tüm datalarý memory de tutar.
+ - RabbitMQ: Mesaj kuyruk sistemi.
+ - SQL Server, PostreSQL iliþkisel veritabaný, MongoDB ve Redis NoSQL veritabaný.
+ - MongoDB datalarýný fiziksel bir yerde tutarken, Redis datalarý tamamen memory de tutuyor.
+ - DBeaver Community IDE, SQL Server ve PostreSQL veritabanlarýný ayný anda görmeyi saðlayan araç.
+ - Mikroservisler; birbirinden baðýmsýz olarak hayatlarýný sürdürebilen geliþebilen ve birbirleriyle haberleþebilen servislerdir.
+ - 	Avantajlarý;
+ - 		- Her mikroservis baðýmsýz bir þekilde deploy edilebilir.
+ - 		- Mikroservislerdeki hata izolasyonunun düþük olmasý.
+ -		- Codebase az olduðundan ekiplerin kodu daha kolay anlamasýný saðlayarak bakýmýný kolaylaþtýrýr.
+ - 	Dezavantajlarý;
+ -		- Birbirinden baðýmsýz servisler olduðundan dolayý servisler arasýndaki iletiþimi yönetmek zor olacak.
+ -		- Her servisin kendine ait bir veritabaný olacaðýndan dolayý transaction sorunu olabilir.
+ - 		- Birden fazla servisten oluþan bir mikroservisi debug yapmak çok daha zor olacak.
+ - Mikroservisler arasýdaki iletiþim;
+	Senkron iletiþim: Bir mikroservis baþka bir mikroservise istek yaptýðýnda sonucu bekliyorsa bu senkron iletiþimdir.
+	Asenkron iletiþim: Bir mikroservis baþka bir mikroservise istek yaptýðýnda sonucu beklemez. Aralarýnda message broker vardýr.
+ - Bir mikroservis baþka bir mükroservisin veritabanýna asla eriþmemelidir. Eðer bir data alacaksa apiler üzerinden eriþmelidir.
+ - Eventual Consistency: Herhangi bir T anýnda farklý kullanýcýlar farklý datalarý görmesi bir problem teþkil etmiyorsa burda Eventual
+   	Consisteny'i bir message brokerla gerçekleþtirebiliriz.
